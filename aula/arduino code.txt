@@ -1,0 +1,22 @@
+
+#define ledR 8
+#define ledG 7
+
+void setup() {
+  pinMode(ledR, OUTPUT);
+  pinMode(ledG, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if(Serial.available()>0){
+  char comando = Serial.read();
+  if(comando == 'G'){
+    digitalWrite(ledG, HIGH);
+    digitalWrite(ledR, LOW);
+  }else if(comando == 'R'){
+    digitalWrite(ledG, LOW);
+    digitalWrite(ledR, HIGH);
+  }
+}
+}
